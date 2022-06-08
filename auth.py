@@ -94,3 +94,42 @@ def login():
         flash(error)
     # render_template() will render a template containing the HTML
     return render_template('auth/login.html')
+
+
+# checks if a user id is stored in the sesion and gets that user's data from 
+# the database, storing it on g.user, which lasts for the length of the request. 
+# before_app_request registers a function that runs before the view function, no 
+# matter what URL is requested.
+@bp.before_app_request
+def load_logged_in_user():
+    # gets the user_id from the session
+    user_id = session.get('user_id')
+
+    # if there is no user if, of if the id doesnt exist, g.user will be None
+    if user_id is None:
+        g.user = None
+    else:
+        g.user = get_db().execute(
+            'SELECT * FROM user WHERE id = ?', (user_id)
+        ).fetchone()
+
+
+# to log out, the user_id must be removed from the session, then load_logged_in_user 
+# wont load a user on subsequent request
+@bp.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
+
+def login_required(view):
+    # functools is a standard Python module for higher-order functions, wraps() is a decorator
+    # that is applied to the wrapper function of a decorator
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for('auth.login'))
+
+        return view(**kwargs)
+
+    return wrapped_view
