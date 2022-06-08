@@ -54,3 +54,43 @@ def register():
     # render_template() will render a template containing the HTML 
     return render_template('auth/register.html')
 
+
+# associates the URL /login with the login view function. When 
+# flask recieves a request to /auth/login it will call the login view
+# and use the return value as the repsonse, 
+@bp.route('/login', methods=('GET', 'POST'))
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        db = get_db()
+        error = None
+
+        # retrevies the user from the database based on the submitted form data
+        # fetchone() returns one row from the query; if the query returned no results, 
+        # it returns None; later
+        user = db.execute(
+            'SELECT * FROM user WHERE username = ?', (username,)
+        ).fetchone()
+
+        # check_password_hash hashes the submitted password in the same way as
+        # the stored hash and securely compares them; if they match, the password is valid
+        if user is None:
+            error = 'Incorrect username.'
+        elif not check_password_hash(user['password'], password):
+            error = 'Incorrest password.'
+
+        # session is a dictionary that stores data across request; when validation succeeds, the
+        # the user's id is stored in a new session. the data is stored in a cookie that is sent to
+        # the browser, and the browser then sends it back with the subsequent request; flask securely
+        # signs the data so that it can't be tempered with 
+        if error is None:
+            session.clear()
+            session['user_id'] = user['id']
+            return redirect(url_for('index'))
+
+        # if there is a validation fails, the error is shown to the user. 
+        # flash() stores messages that can be retrieved when rendering the template
+        flash(error)
+    # render_template() will render a template containing the HTML
+    return render_template('auth/login.html')
