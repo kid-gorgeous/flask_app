@@ -59,4 +59,5 @@ The command line arguements that are necessary for starting the flask applicatio
 Once you've changed the parameters in the scheme.sql file, and taken into consideration the context required in executing queries from the database.
 
 Imploy the following command,  while the flask app is running: 
+    
     $ flask init-db
