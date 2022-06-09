@@ -1,8 +1,13 @@
+
 <!doctype html>
+<!-- a jinja block used for reformatting titles -->
 <title>{% block title %}{% endblock %} - Flaskr</title>
+<!-- a link to the static folder, and style.css -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
   <h1>Flaskr</h1>
+  
+  <!-- feature for the navigation bar -->
   <ul>
     {% if g.user %}
       <li><span>{{ g.user['username'] }}</span>
@@ -12,13 +17,20 @@
       <li><a href="{{ url_for('auth.login') }}">Log In</a>
     {% endif %}
   </ul>
+
 </nav>
+
+<!-- a section for content -->
 <section class="content">
+  <!-- jinja header block to reformat header -->
   <header>
     {% block header %}{% endblock %}
   </header>
+  <!-- diplay content from flash if there were any errors -->
   {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
   {% endfor %}
+  <!-- display the content of the jinja template -->
   {% block content %}{% endblock %}
+
 </section>
