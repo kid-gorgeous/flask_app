@@ -1,9 +1,10 @@
+# Why Flask?
+One design decision utilized in Flask is the art of making simple tasks more simple; they should not take a lot of code and they should not limit the application. Flask utilized Thread-Locking features that no longer require the passage of parameters from object to object. This is convenient, but requires a valid request context for dependency injection, or when attempting to reuse code that uses a value required for the request.
 
+Always keep the security in mind when buiding web applications
 
 
 ## SETTING UP FLASK
-
-
 
 ### Dependence
 These disibutions will be installed automatically when installing Flask
@@ -45,11 +46,17 @@ Flask is now installed.
 
 The command line arguements that are necessary for starting the flask application must be written as such in the command line:
 
-#### UNIX OS
+####  * UNIX OS
         $ export FLASK_APP=app
         $ export FLASK_ENV=development
         $ flask run -h localhost -p 5000
-#### fish
+####  * fish
         $ set -x FLASK_APP flasker
         $ set -x FLASK_ENV development
         $ flask run -h localhost -p 5000
+
+### Initializing a new Database
+Once you've changed the parameters in the scheme.sql file, and taken into consideration the context required in executing queries from the database.
+
+Imploy the following command,  while the flask app is running: 
+    $ flask init-db
