@@ -1,3 +1,6 @@
+
+
+
 ## SETTING UP FLASK
 
 
@@ -19,13 +22,22 @@ These disibutions will be installed automatically when installing Flask
         Blinker, python-dotenv, Watchdog
 
 ### Necessary:
-    PyPy >= 7.3.7, and greenlet>=1.0
+        PyPy >= 7.3.7, and greenlet>=1.0
     
 * These are not minimum supported versions, they only indicate the first versions that added necessary features. You should use the latest versions of each.
+
+
 
 ### Installing Flask
 Within the activated environment, use the following command to install Flask:
 
-> $ pip install Flask
+        $ pip install Flask
     
 Flask is now installed. 
+
+## SETTING UP FLASK ENVIRONMENTS
+
+The command line arguements that are necessary for starting the flask application must be written as such in the command line:
+    $ export FLASK_APP=app
+    $ epport FLASK_ENV=development
+    $ flask run
