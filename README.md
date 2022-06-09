@@ -44,8 +44,7 @@ Flask is now installed.
 ## Setting up Flask Environment
 
 The command line arguements that are necessary for starting the flask application must be written as such in the command line:
-    $ export FLASK_APP=app
-
-    $ epport FLASK_ENV=development
     
+    $ export FLASK_APP=app
+    $ epport FLASK_ENV=development
     $ flask run
