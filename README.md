@@ -1,5 +1,6 @@
 ## SETTING UP FLASK
 
+
 ### Dependence
 These disibutions will be installed automatically when installing Flask
 
@@ -12,3 +13,11 @@ These disibutions will be installed automatically when installing Flask
 4. [ItsDangerous](https://palletsprojects.com/p/itsdangerous/) Data is cryptographically signed to ensure that a token has not been tampered with.
 
 5. [Click](https://palletsprojects.com/p/click/) It's the "Command Line Interface Creation Kit".
+
+
+### Optional dependencies: 
+        Blinker, python-dotenv, Watchdog
+
+### Necessary:
+        PyPy >= 7.3.7, and greenlet>=1.0
+        These are not minimum supported versions, they only indicate the first versions that added necessary features. You should use the latest versions of each.
