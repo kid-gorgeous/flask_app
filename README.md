@@ -6,7 +6,7 @@ Always keep the security in mind when buiding web applications
 
 ## SETTING UP FLASK
 
-### Dependence
+### Dependencies
 These disibutions will be installed automatically when installing Flask
 
 1. [Werkzeug](https://palletsprojects.com/p/werkzeug/) implements WSGI, the standard Python interface between applications and serverse
@@ -54,6 +54,8 @@ The command line arguements that are necessary for starting the flask applicatio
         $ set -x FLASK_APP flasker
         $ set -x FLASK_ENV development
         $ flask run -h localhost -p 5000
+
+#### Flask [Quickstart](https://flask.palletsprojects.com/en/2.1.x/quickstart/)
 
 ### Initializing a new Database
 Once you've changed the parameters in the scheme.sql file, and taken into consideration the context required in executing queries from the database.
