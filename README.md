@@ -2,7 +2,10 @@
 
 
 ## SETTING UP FLASK
+
+
 ---
+
 
 ### Dependence
 These disibutions will be installed automatically when installing Flask
@@ -17,6 +20,7 @@ These disibutions will be installed automatically when installing Flask
 
 5. [Click](https://palletsprojects.com/p/click/) It's the "Command Line Interface Creation Kit".
 
+
 ---
 ### Optional dependencies: 
         Blinker, python-dotenv, Watchdog
@@ -26,6 +30,8 @@ These disibutions will be installed automatically when installing Flask
     
 * These are not minimum supported versions, they only indicate the first versions that added necessary features. You should use the latest versions of each.
 
+
+
 ---
 ### Installing Flask
 Within the activated environment, use the following command to install Flask:
@@ -33,6 +39,8 @@ Within the activated environment, use the following command to install Flask:
         $ pip install Flask
     
 Flask is now installed. 
+
+
 
 ---
 ## Setting up Flask Environment
