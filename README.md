@@ -4,7 +4,7 @@ One design decision utilized in Flask is the art of making simple tasks more sim
 Always keep the security in mind when buiding web applications
 
 
-## SETTING UP FLASK
+## Setting up Flask
 
 ### Dependencies
 These disibutions will be installed automatically when installing Flask
